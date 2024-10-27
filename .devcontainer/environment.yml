@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+dependencies:
+  - ipykernel
+  - mypy
+  - pylint
+  - ruff
+  - openjdk=11.0.1
+  - python=3.13
+  - cv2
+  - numpy

@@ -1,0 +1,81 @@
+{
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "charliermarsh.ruff",
+                "eamodio.gitlens",
+                "eriklynd.json-tools",
+                "matangover.mypy",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "ms-python.pylint"
+            ],
+            "settings": {
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit",
+                        "source.organizeImports": "explicit"
+                    },
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                },
+                "mypy.runUsingActiveInterpreter": true,
+                "notebook.formatOnSave.enabled": true,
+                "notebook.codeActionsOnSave": {
+                    "notebook.source.fixAll": "explicit",
+                    "notebook.source.organizeImports": "explicit"
+                },
+                "notebook.output.scrolling": true,
+                "pylint.args": [
+                    "--max-line-length=150",
+                    "--disable=R0903",
+                    "--extension-pkg-whitelist=pyspark",
+                    "--generated-members=pyspark.*",
+                    "--ignored-modules=pyspark.*,delta.tables,mssparkutils,notebookutils"
+                ],
+                "pylint.interpreter": [
+                    "/opt/conda/envs/pyspark/bin/python"
+                ],
+                "pylint.path": [
+                    "/opt/conda/envs/pyspark/bin/pylint"
+                ],
+                "python.analysis.extraPaths": [
+                    "./udp_acquisition/udp_acquisition/",
+                    "./udp_transformation/udp_transformation/",
+                    "/opt/conda/envs/pyspark/lib/python3.10/site-packages"
+                ],
+                "python.analysis.inlayHints.functionReturnTypes": true,
+                "python.analysis.inlayHints.callArgumentNames": "all",
+                "python.analysis.inlayHints.pytestParameters": true,
+                "python.analysis.inlayHints.variableTypes": true,
+                "python.defaultInterpreterPath": "/opt/conda/envs/pyspark/bin/python",
+                "python.languageServer": "Pylance",
+                "python.terminal.activateEnvironment": true,
+                "python.testing.autoTestDiscoverOnSaveEnabled": false,
+                "python.testing.promptToConfigure": false,
+                "python.testing.pytestEnabled": true,
+                "python.testing.pytestPath": "/opt/conda/envs/pyspark/bin/pytest",
+                "python.testing.unittestEnabled": false,
+                "remote.autoForwardPorts": false,
+                "remote.restoreForwardedPorts": false,
+                "ruff.format.args": [
+                    "--line-length=120"
+                ],
+                "ruff.organizeImports": true,
+                "terminal.integrated.shell.linux": "/bin/bash"
+            }
+        }
+    },
+    "dockerComposeFile": [
+        "./docker-compose.yml"
+    ],
+    "name": "DERMA-THESIS",
+    "postCreateCommand": "chmod +x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh",
+    "service": "devcontainer",
+    "workspaceFolder": "/DERMA-THESIS"
+}
